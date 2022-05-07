@@ -1,11 +1,15 @@
 import express from 'express'
 import { body } from 'express-validator'
-import { postRegisterUser } from '../controllers/auth.js'
+import {
+	putSignupUser,
+	postLogin,
+	postRefreshToken,
+} from '../controllers/auth.js'
 
 const router = express.Router()
 
-router.post(
-	'/register',
+router.put(
+	'/signup',
 	[
 		body('name').isString().isLength({ min: 5 }).trim(),
 		body('email').isEmail().withMessage('invalid email').normalizeEmail(),
@@ -22,7 +26,21 @@ router.post(
 				return true
 			}),
 	],
-	postRegisterUser
+	putSignupUser
 )
+
+router.post(
+	'/login',
+	[
+		body('email').isEmail().withMessage('invalid email').normalizeEmail(),
+		body('password', 'invalid password')
+			.isLength({ min: 5 })
+			.isAlphanumeric()
+			.trim(),
+	],
+	postLogin
+)
+
+router.post('/refresh-token', postRefreshToken)
 
 export { router as authRoutes }
