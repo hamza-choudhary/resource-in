@@ -1,0 +1,39 @@
+.register-acc-back-btn img {
+    width: 8px;
+}
+
+.register-acc-back-btn a {
+    color: black;
+    font-weight: 500;
+    margin-bottom: 10%;
+}
+
+.register-account-heading h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.register-account-heading p {
+    opacity: 0.5;
+}
+
+.register-account-heading {
+    margin: 0px 0px 20px 0px;
+}
+
+.reg-acc-input-field {
+    margin: 15px 0px;
+}
+
+.reg-acc-sign-in-link p {
+    font-size: 14px;
+}
+
+.reg-acc-sign-in-link p a {
+    color: #2F53EB;
+}
+
+.login-main-right.reg-main-right img {
+    object-position: bottom;
+}

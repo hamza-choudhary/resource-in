@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Login from './Components/Login/Login';
+import Dashboard from './Components/UI/Dashboard';
+import ForgotPassword from './Components/Login/ForgotPassword';
+import ProtectedRoutes from './Components/ProtectRoutes/ProtectedRoutes';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Experiment from './Components/experiment/Experiment';
+import EmployeeInfoMain from './Components/UserProfile/EmployeeInfo/EmployeeInfoMain';
+import RegisterAccount from './Components/Login/RegisterAccount';
 
 function App() {
+
+  const isAuth = useSelector(state => state.auth.isAuth);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/dashboard' element={
+            <ProtectedRoutes>
+              <Dashboard />
+            </ProtectedRoutes>
+          } />
+          <Route path='/forgot' element={
+              <ForgotPassword />} />
+          <Route path='/register' element={<RegisterAccount />} />
+
+          <Route path='/e' element={<Experiment/>}/>
+        </Routes>
+      </Router>
+      {/* <EmployeeInfoMain /> */}
+    </>
   );
 }
 
