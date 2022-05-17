@@ -17,14 +17,6 @@ router.put(
 			.isLength({ min: 5 })
 			.isAlphanumeric()
 			.trim(),
-		body('confirm-password')
-			.trim()
-			.custom((value, { req }) => {
-				if (value !== req.body.password) {
-					throw new Error('passwords not match')
-				}
-				return true
-			}),
 	],
 	putSignupUser
 )
