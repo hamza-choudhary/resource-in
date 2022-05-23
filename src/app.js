@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
 import { authRoutes } from './api/routes/auth.js'
+import {dashboardRoutes} from './api/routes/dashboard.js'
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 //? Routes
 app.use(authRoutes)
+app.use(dashboardRoutes)
 
 //? Express Error Middleware
 app.use((error, req, res, next) => {
