@@ -111,3 +111,16 @@ CREATE TABLE relaxation (
 DELETE FROM relaxation;
 DROP TABLE relaxation;
 
+/*============company specific constants===========*/
+CREATE TABLE company_constants (
+    constant_id int NOT NULL AUTO_INCREMENT,
+    /*company_id int NOT NULL,*/
+    constant_key varchar(255) NOT NULL,
+	constant_value varchar(255) NOT NULL,
+    
+    PRIMARY KEY (constant_id)
+    /*FOREIGN KEY (attendance_id) REFERENCES attendance(attendance_id)*/
+);
+
+DELETE FROM company_constants;
+DROP TABLE company_constants;
