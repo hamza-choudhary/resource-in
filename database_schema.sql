@@ -1,5 +1,18 @@
 CREATE SCHEMA `resourceinn`;
 
+CREATE TABLE company (
+    company_id int NOT NULL,
+    company_name varchar(255),
+    annual_leaves int,
+    unpaid_leaves int,
+
+    PRIMARY KEY (company_id)
+);
+
+DELETE FROM company;
+DROP TABLE company;
+
+
 CREATE TABLE employee (
     emp_id int NOT NULL AUTO_INCREMENT,
     emp_name varchar(255) NOT NULL,
@@ -110,6 +123,22 @@ CREATE TABLE relaxation (
 
 DELETE FROM relaxation;
 DROP TABLE relaxation;
+
+/*============leave===========*/
+CREATE TABLE emp_leave (
+    leave_id int NOT NULL AUTO_INCREMENT,
+    emp_id int NOT NULL,
+	leave_type varchar(255) NOT NULL, 
+	leave_date DATE NOT NULL,
+    
+    PRIMARY KEY (leave_id),
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+);
+
+SELECT count(leave_id) as leave_count from emp_leave where emp_id=1 and leave_type="Annual";
+
+DELETE FROM emp_leave;
+DROP TABLE emp_leave;
 
 /*============company specific constants===========*/
 CREATE TABLE company_constants (

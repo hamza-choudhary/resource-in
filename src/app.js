@@ -2,7 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
 import { authRoutes } from './api/routes/auth.js'
-import {dashboardRoutes} from './api/routes/dashboard.js'
+import { dashboardRoutes } from './api/routes/dashboard.js'
 
 const app = express()
 
@@ -26,7 +26,7 @@ app.use((error, req, res, next) => {
 	const status = error.status || 500
 	const message = error.message || 'server internal error'
 
-	res.status(status).json({ message: message })
+	res.status(status).json({ status: 'error', message: message })
 })
 
 app.listen(8080)
