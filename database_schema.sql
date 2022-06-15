@@ -3,11 +3,16 @@ CREATE SCHEMA `resourceinn`;
 CREATE TABLE company (
     company_id int NOT NULL,
     company_name varchar(255),
+    expected_check_in TIME, /*if every emp had different expected check in time or duaration this field should move to employee table*/
+    expected_check_out TIME,
     annual_leaves int,
     unpaid_leaves int,
 
     PRIMARY KEY (company_id)
 );
+
+ALTER TABLE company
+MODIFY expected_check_out TIME;
 
 DELETE FROM company;
 DROP TABLE company;
