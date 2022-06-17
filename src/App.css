@@ -7,6 +7,33 @@
   pointer-events: none;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Open-Sans";
+  background: #f5f6ff;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+  list-style-type: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

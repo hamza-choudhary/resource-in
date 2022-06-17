@@ -1,0 +1,15 @@
+td,
+th {
+  padding: 5px 0px;
+}
+tbody tr:nth-child(odd) {
+  background-color: #f5f6ff;
+}
+
+thead th:nth-child(1) {
+  border-radius: 8px 0px 0px 0px;
+}
+
+thead th:nth-last-child(1) {
+  border-radius: 0px 8px 0px 0px;
+}
