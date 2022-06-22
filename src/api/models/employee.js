@@ -1,6 +1,6 @@
 import db from '../util/database.js'
 
-export class User {
+export class Employee {
 	constructor(name, email, password) {
 		this.name = name
 		this.email = email
@@ -20,5 +20,11 @@ export class User {
 
 	static findAll() {
 		return db.execute('SELECT * FROM user')
+	}
+
+	static monthlyBirthdays() {
+		return db.execute(
+			'SELECT emp_name, emp_date_of_birth FROM employee WHERE MONTH(emp_date_of_birth) = MONTH(NOW()) ORDER BY  DAYOFWEEK(emp_date_of_birth)'
+		)
 	}
 }

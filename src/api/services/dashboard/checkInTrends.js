@@ -1,4 +1,4 @@
-import { DateTime, Duration } from 'luxon'
+import { DateTime } from 'luxon'
 import { Attendance } from '../../models/attendance.js'
 import { Company } from '../../models/company.js'
 

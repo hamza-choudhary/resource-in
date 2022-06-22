@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator'
 import bcrypt from 'bcryptjs'
-import { User } from '../models/user.js'
+import { Employee } from '../models/employee.js'
 import { getUserByEmail } from '../validations/auth.js'
 import { createToken, verifyToken } from '../helpers/jwt-helpers.js'
 
@@ -24,7 +24,7 @@ export const putSignupUser = async (req, res, next) => {
 			throw error
 		}
 		const hashedPassword = await bcrypt.hash(password, 12)
-		const user = new User(name, email, hashedPassword)
+		const user = new Employee(name, email, hashedPassword)
 
 		const response = await user.save()
 

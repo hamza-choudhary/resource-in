@@ -42,6 +42,8 @@ CREATE TABLE employee (
 
 INSERT INTO employee (emp_name, emp_email, emp_password) VALUES ('barry', 'barry@email.com', 'hello');
 
+SELECT * FROM employee WHERE MONTH(emp_date_of_birth) = MONTH(NOW()) ORDER BY  DAYOFWEEK(emp_date_of_birth);
+
 DELETE FROM employee;
 DROP TABLE employee;
 
