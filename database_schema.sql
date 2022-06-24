@@ -20,11 +20,12 @@ DROP TABLE company;
 
 CREATE TABLE employee (
     emp_id int NOT NULL AUTO_INCREMENT,
-    emp_name varchar(255) NOT NULL,
+    emp_user_name varchar(255) NOT NULL,
     emp_email varchar(255) NOT NULL,
     emp_password longtext NOT NULL,
     emp_first_name varchar(255),
     emp_middle_name varchar(255),
+    emp_last_name varchar(255),
     emp_father_husband_name varchar(255),
     emp_gender varchar(255),
     emp_date_of_birth DATE,
@@ -32,13 +33,22 @@ CREATE TABLE employee (
     emp_religion varchar(255),
     emp_nationality varchar(255),
     emp_blood_group varchar(255),
-    emp_profile_pic varchar(255),
+    emp_profile_img varchar(255) default 'default-profile-img.jpg',
     emp_salutation varchar(20),
     emp_mobile_no varchar(255),
     emp_landline_no varchar(255),
     
     PRIMARY KEY (emp_id)
 );
+
+
+UPDATE employee
+SET emp_name = 'barry alen'
+WHERE emp_id = 1;
+
+ALTER TABLE employee ADD COLUMN emp_last_name VARCHAR(255); 
+
+
 
 INSERT INTO employee (emp_name, emp_email, emp_password) VALUES ('barry', 'barry@email.com', 'hello');
 

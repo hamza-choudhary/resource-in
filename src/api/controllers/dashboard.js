@@ -1,5 +1,4 @@
 import { validationResult } from 'express-validator'
-import { Attendance } from '../models/attendance.js'
 import { attendanceSummary } from '../services/dashboard/attendanceSummary.js'
 import { leaveSummary } from '../services/dashboard/leaveSummary.js'
 import { checkInTrends } from '../services/dashboard/checkInTrends.js'

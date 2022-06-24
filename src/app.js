@@ -1,8 +1,10 @@
 import 'dotenv/config'
 import express from 'express'
 import bodyParser from 'body-parser'
+//FIXME: find a way to import same type of routes from a single file
 import { authRoutes } from './api/routes/auth.js'
 import { dashboardRoutes } from './api/routes/dashboard.js'
+import { profileRoutes } from './api/routes/profile.js'
 
 const app = express()
 
@@ -19,6 +21,7 @@ app.use((req, res, next) => {
 //? Routes
 app.use(authRoutes)
 app.use(dashboardRoutes)
+app.use(profileRoutes)
 
 //? Express Error Middleware
 app.use((error, req, res, next) => {

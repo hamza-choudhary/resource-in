@@ -24,7 +24,28 @@ export class Employee {
 
 	static monthlyBirthdays() {
 		return db.execute(
-			'SELECT emp_name, emp_date_of_birth FROM employee WHERE MONTH(emp_date_of_birth) = MONTH(NOW()) ORDER BY  DAYOFWEEK(emp_date_of_birth)'
+			'SELECT emp_name, emp_date_of_birth, emp_profile_img FROM employee WHERE MONTH(emp_date_of_birth) = MONTH(NOW()) ORDER BY  DAYOFWEEK(emp_date_of_birth)'
+		)
+	}
+
+	static updatePersonalInfo(info) {
+		return db.execute(
+			'UPDATE employee SET emp_first_name=?, emp_middle_name=?, emp_last_name=?, emp_father_husband_name=?, emp_gender=?, emp_date_of_birth=?, emp_marital_status=?, emp_religion=?, emp_nationality=?, emp_blood_group=?, emp_profile_img=?, emp_salutation=? WHERE emp_id=?',
+			[
+				info.firstName,
+				info.middleName,
+				info.lastName,
+				info.fatherHusbandName,
+				info.gender,
+				info.dateOfBirth,
+				info.maritalStatus,
+				info.religion,
+				info.nationality,
+				info.bloodGroup,
+				info.profileImg,
+				info.salutation,
+				info.empId,
+			]
 		)
 	}
 }
