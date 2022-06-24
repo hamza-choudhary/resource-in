@@ -1,14 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [profileIsOpen, setProfileIsOpen] = useState(false);
+  const [serviceIsOpen, setServiceisOpen] = useState(false);
 
-  const toggling = () => {
+  const toggleProfile = (e) => {
     setProfileIsOpen(!profileIsOpen);
   };
+  const toggleService = () => {
+    setServiceisOpen(!serviceIsOpen);
+  };
+  useEffect(() => {
+    // toggleProfile();
+  }, []);
   return (
     <div>
       <div className="navbar-container">
@@ -30,7 +38,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="navbar-list">
-                <NavLink to="/profile" onClick={toggling}>
+                <NavLink to="/profile" onClick={toggleProfile}>
                   <img src="assests/images/profile-icon.png" alt="" />
                   <span>Profile</span>
                   {!profileIsOpen && (
@@ -44,37 +52,70 @@ const Navbar = () => {
                   <ul className="profile-dropdown">
                     <li>
                       {" "}
-                      <a href="#">User Information</a>{" "}
+                      <NavLink to="/profile">User Information</NavLink>{" "}
                     </li>
                     <li>
                       {" "}
-                      <a href="#">Contact Info</a>{" "}
+                      <NavLink to="/contact_info">Contact Info</NavLink>{" "}
                     </li>
                     <li>
                       {" "}
-                      <a href="#">Assets</a>{" "}
+                      <NavLink to="/assets">Assets</NavLink>{" "}
                     </li>
                     <li>
                       {" "}
-                      <a href="#">Relatives</a>{" "}
+                      <NavLink to="/relatives">Relatives</NavLink>{" "}
                     </li>
                     <li>
                       {" "}
-                      <a href="#">Qualification/Experience</a>{" "}
+                      <NavLink to="/experience">
+                        Qualification/Experience
+                      </NavLink>{" "}
                     </li>
                     <li>
                       {" "}
-                      <a href="#">Banks</a>{" "}
+                      <NavLink to="/banks">Banks</NavLink>{" "}
                     </li>
                   </ul>
                 )}
               </li>
               <li className="navbar-list">
-                <a href=".">
+                <NavLink to="/probation" onClick={toggleService}>
                   <img src="assests/images/self-service-icon.png" alt="" />
                   <span>Self Services</span>
-                  <img src="assests/images/back-arrow.png" alt="" />
-                </a>
+                  {!serviceIsOpen && (
+                    <img src="assests/images/back-arrow.png" alt="" />
+                  )}
+                  {serviceIsOpen && (
+                    <img src="assests/images/icons/arrow-down.png" alt="" />
+                  )}
+                </NavLink>
+                {serviceIsOpen && (
+                  <ul className="profile-dropdown">
+                    <li>
+                      {" "}
+                      <NavLink to="/probation">My Probation</NavLink>{" "}
+                    </li>
+                    <li>
+                      <NavLink to="/leaves">My Leaves</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/loan">My Loan & Advance</NavLink>
+                    </li>
+                    <li>
+                      <a href="#">My Time Sheet</a>
+                    </li>
+                    <li>
+                      <a href="#">My Calender</a>
+                    </li>
+                    <li>
+                      <a href="#">My Chart</a>
+                    </li>
+                    <li>
+                      <a href="#">My Payslips</a>
+                    </li>
+                  </ul>
+                )}
               </li>
               <li className="navbar-list">
                 <a href=".">

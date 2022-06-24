@@ -3,44 +3,44 @@ import Card from "../../UI/Card";
 import CardHeading from "../../UI/CardHeading";
 import "./LeaveSummary.css";
 
-const data = [
-  {
-    type: "Annual Leave",
-    totalBalance: "21",
-    availibleLeaves: "10",
-    leavesAvailed: "11",
-  },
-  {
-    type: "Unpaid Leave",
-    totalBalance: "7",
-    availibleLeaves: "6",
-    leavesAvailed: "1",
-  },
-];
+// const data = [
+//   {
+//     type: "Annual Leave",
+//     totalBalance: "21",
+//     availibleLeaves: "10",
+//     leavesAvailed: "11",
+//   },
+//   {
+//     type: "Unpaid Leave",
+//     totalBalance: "7",
+//     availibleLeaves: "6",
+//     leavesAvailed: "1",
+//   },
+// ];
 
 const LeaveSummary = (props) => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  // const fetchSummary = async () => {
-  //   const response = await fetch("http://192.168.1.117:8080/leave-summary", {
-  //     body: JSON.stringify({
-  //       empId: "1",
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "POST",
-  //   });
-  //   const data = await response.json();
-  //   setData(data.data);
-  //   data.data.map((item) => console.log(item.type));
-  //   console.log(data.data.map((item) => item));
-  // };
+  const fetchSummary = async () => {
+    const response = await fetch("http://localhost:8080/leave-summary", {
+      body: JSON.stringify({
+        empId: "1",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    const data = await response.json();
+    setData(data.data);
+    // data.data.map((item) => console.log(item.type));
+    // console.log(data.data.map((item) => item));
+  };
   // fetchSummary();
 
-  // useEffect(() => {
-  //   fetchSummary();
-  // }, []);
+  useEffect(() => {
+    fetchSummary();
+  }, []);
 
   return (
     <>

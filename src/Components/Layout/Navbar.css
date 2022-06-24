@@ -1,6 +1,6 @@
 .navbar-container {
   max-width: 100%;
-  padding: 0px 15px;
+  /* padding: 0px 15px; */
   background: white;
 }
 
@@ -31,7 +31,7 @@ li.navbar-list {
   position: relative;
 }
 
-li.navbar-list a {
+li.navbar-list > a {
   padding: 15px 15px;
 }
 
@@ -43,6 +43,8 @@ li.navbar-list a span {
 
 nav.navbar {
   margin-top: 20px;
+  width: 100%;
+  padding: 0px 20px;
 }
 
 .navbar ul li a img:nth-child(3) {
@@ -50,7 +52,7 @@ nav.navbar {
   right: 10px;
   height: 10px;
   width: 9.5px;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .right-width {
@@ -61,7 +63,7 @@ nav.navbar {
   font-size: 12px;
   font-weight: 600;
   color: rgb(0, 0, 0, 0.5);
-  padding: 10px 0px;
+  padding: 10px 20px;
 }
 
 ul.profile-dropdown {
@@ -69,6 +71,19 @@ ul.profile-dropdown {
   transition: all 0.4s;
 }
 
-nav.navbar ul li a.active {
+nav.navbar > ul > li > a.active {
   background: #f1f0fe;
+  border-radius: 8px;
+  color: #8578fb;
+}
+
+nav.navbar > ul > li > a.active img {
+  opacity: 1;
+  filter: invert(52%) sepia(30%) saturate(5358%) hue-rotate(220deg)
+    brightness(100%) contrast(98%);
+  /* transform: rotate(45deg); */
+}
+
+nav.navbar > ul > li a.active {
+  color: #8578fb;
 }
