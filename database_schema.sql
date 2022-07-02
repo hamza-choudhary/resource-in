@@ -61,7 +61,7 @@ DROP TABLE employee;
 CREATE TABLE emp_identity_card (
     identity_card_id int NOT NULL AUTO_INCREMENT,
     emp_id int NOT NULL,
-    cinic_no varchar(255) NOT NULL,
+    cnic_no varchar(255) NOT NULL,
     cnic_attachment varchar(255),
     cnic_expiry_date DATE,
     

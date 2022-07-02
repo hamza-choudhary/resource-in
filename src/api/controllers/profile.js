@@ -1,12 +1,46 @@
 import { validationResult } from 'express-validator'
-import { updatePersonalInfo } from '../services/profile/personalInfo.js'
+import {
+	updatePersonalInfo,
+	updateQuickContact,
+	updateIdentityCard,
+	updateDrivingCard,
+} from '../services/profile/personalInfo.js'
 
 export const putPersonalInfo = async (req, res, next) => {
 	try {
-    console.log('hello');
-		const empBirthdaysData = await updatePersonalInfo(req.body)
-    //FIXME: send some response
-		res.status(200).json({ status: 'ok', data: empBirthdaysData })
+		await updatePersonalInfo(req.body)
+		res
+			.status(200)
+			.json({ status: 'ok', data: 'updated personal info successfully' })
+	} catch (error) {
+		next(error)
+	}
+}
+
+export const putQuickContact = async (req, res, next) => {
+	try {
+		await updateQuickContact(req.body)
+		res
+			.status(200)
+			.json({ status: 'ok', data: 'updated quick contact successfully' })
+	} catch (error) {
+		next(error)
+	}
+}
+
+export const putIdentityCard = async (req, res, next) => {
+	try {
+		const updatedIdentityCard = await updateIdentityCard(req.body)
+		res.status(200).json({ status: 'ok', message: updatedIdentityCard })
+	} catch (error) {
+		next(error)
+	}
+}
+
+export const putDrivingCard = async (req, res, next) => {
+	try {
+		const updatedIdentityCard = await updateDrivingCard(req.body)
+		res.status(200).json({ status: 'ok', message: updatedIdentityCard })
 	} catch (error) {
 		next(error)
 	}

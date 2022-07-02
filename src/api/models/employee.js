@@ -48,4 +48,11 @@ export class Employee {
 			]
 		)
 	}
+
+	static updateQuickContact(info) {
+		return db.execute(
+			'UPDATE employee SET emp_email=?, emp_mobile_no=?, emp_landline_no=? WHERE emp_id=?',
+			[info.email, info.mobileNum, info.landLineNum, info.empId]
+		)
+	}
 }
