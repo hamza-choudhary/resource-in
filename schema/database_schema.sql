@@ -30,7 +30,6 @@ CREATE TABLE employee (
     emp_gender varchar(255),
     emp_date_of_birth DATE,
     emp_marital_status BOOLEAN,
-    emp_department VARCHAR(255),
     emp_religion varchar(255),
     emp_nationality varchar(255),
     emp_blood_group varchar(255),
@@ -47,12 +46,9 @@ UPDATE employee
 SET emp_name = 'barry alen'
 WHERE emp_id = 1;
 
-ALTER TABLE employee ADD COLUMN emp_department VARCHAR(255); 
+ALTER TABLE employee ADD COLUMN emp_last_name VARCHAR(255); 
 
-SELECT * 
-FROM emp_leave as l
-LEFT JOIN employee as e 
-ON l.emp_id = e.emp_id;
+
 
 INSERT INTO employee (emp_name, emp_email, emp_password) VALUES ('barry', 'barry@email.com', 'hello');
 
@@ -167,14 +163,10 @@ CREATE TABLE emp_leave (
     leave_id int NOT NULL AUTO_INCREMENT,
     emp_id int NOT NULL,
 	leave_type varchar(255) NOT NULL, 
-	leave_start_date DATE NOT NULL,
-    leave_end_date DATE NOT NULL,
-    leave_accepted_by int,
-    leave_status VARCHAR(255),
+	leave_date DATE NOT NULL,
     
     PRIMARY KEY (leave_id),
-    FOREIGN KEY (emp_id) REFERENCES employee(emp_id),
-    FOREIGN KEY (leave_accepted_by) REFERENCES employee(emp_id)
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
 );
 
 SELECT count(leave_id) as leave_count from emp_leave where emp_id=1 and leave_type="Annual";

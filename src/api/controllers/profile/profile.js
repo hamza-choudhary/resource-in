@@ -4,7 +4,7 @@ import {
 	updateQuickContact,
 	updateIdentityCard,
 	updateDrivingCard,
-} from '../services/profile/personalInfo.js'
+} from '../../services/profile/personalInfo.js'
 
 export const putPersonalInfo = async (req, res, next) => {
 	try {
@@ -39,8 +39,8 @@ export const putIdentityCard = async (req, res, next) => {
 
 export const putDrivingCard = async (req, res, next) => {
 	try {
-		const updatedIdentityCard = await updateDrivingCard(req.body)
-		res.status(200).json({ status: 'ok', message: updatedIdentityCard })
+		const updatedDrivingCard = await updateDrivingCard(req.body)
+		res.status(200).json({ status: 'ok', message: updatedDrivingCard })
 	} catch (error) {
 		next(error)
 	}
